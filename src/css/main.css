@@ -1,0 +1,131 @@
+.header {
+    background-color: gray;
+    padding: 40px 0 40px 0;
+    font-weight: bold;
+    font-size: 300%;
+}
+.subheader {
+
+    padding: 20px 0 20px 0;
+    font-weight: bold;
+    font-size: 150%;
+}
+.client-input {
+    display: inline-block;
+}
+
+.header_item  {
+    display: inline-block;
+    padding: 20px;
+    color: #525252;
+    text-decoration-color: #525252;
+}
+.header_item a{
+    color: #525252;
+    text-decoration-color: #525252;
+}
+.btn {
+    margin: 5px 0 0 0;
+}
+
+#form1{
+	display:flex;
+}
+.main_header{
+    color: black;
+    font-weight: bold;
+}
+.col-md-12{
+    padding: 5px 0 5px 0;
+}
+
+.subheader2{
+    text-align: center;
+    background-color: gray;
+    padding: 15px;
+}
+
+.index_items{
+    padding: 30px;
+    background-color: lightgray;
+}
+
+.idx_name{
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.view_link{
+    color: #525252;
+    text-decoration-color: #525252;
+}
+.desc{
+    color: gray;
+}
+.site_desc{
+    background: lightgray;
+}
+
+.empty{
+    height: 30px;
+    padding: 50px;
+}
+.view_title{
+    color: gray;
+    font-size: 110%;
+
+}
+
+.view_ctx{
+
+    font-size: 120%;
+    font-weight: bold;
+}
+
+.btn_view{
+    background-color: lightgray;
+    border-color:lightgray;
+    position: absolute;
+    right: 100px;
+}
+
+.wrapper{
+    background: #525252;
+    display: inline-block;
+    padding: 0px;
+    margin: 10px;
+    color: white;
+}
+.enemy_search{
+    color: black;
+}
+.wrapper{
+    background: #525252;
+    display: inline-block;
+    padding: 0px;
+    margin: 5px;
+    color: white;
+}
+.found{
+    font-size: 140%;
+    font-weight: bold;
+}
+.no_result{
+    font-size: 180%;
+    font-weight: bold;
+    padding: 50px 0;
+}
+.ch_img{
+    height: 150px;
+    width: 100px;
+}
+.header-pic2{
+    width: 100%;
+    height: 220px;
+}
+.deep_bkg, .found{
+    background-color: lightgray;
+}
+.text-danger{
+    background-color: yellow;
+}

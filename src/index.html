@@ -6,8 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lot Token ICO Sale</title>
     <!-- Bootstrap -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>  
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="js/index.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light container">
+    <div class="row">
+    <div class="header_item main_header">
+      Lottery Token
+    </div>
+    <div class="header_item">
+      <a href="http://localhost:3000/">Home</a>
+    </div>
+    <div class="header_item">
+      <a href="http://localhost:3003/">Play Lottery</a>
+    </div>
+      <div class="header_item">
+          <!-- Search: -->
+        <form id="form1" action="/search" method="get">
+          <input type="text" id="searchbox" name="search_key" value=""><br>
+          <input id="search-btn" type="submit" value="Go">
+          <br>
+        </form>
+        <div id="warning">
+        </div>
+      </div>
+    </div>
+  </nav>
   <body>
     <div class="container" style="width: 650px;">
       <div class="row">
