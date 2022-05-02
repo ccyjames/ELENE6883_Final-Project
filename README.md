@@ -12,3 +12,6 @@ Columbia ELENE6883 Final Project
     - Open Metamask and choose {Import Account}
     - Paste the Private Key to create a new account
     - You will see the number of ETH the account holds on Metamask
+2. Connect your Metamask account to the website
+  - Click the 3-dots button on the upper-right corner
+  - Choose "connect site"
