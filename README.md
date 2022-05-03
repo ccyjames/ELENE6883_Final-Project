@@ -15,3 +15,14 @@ Columbia ELENE6883 Final Project
 2. Connect your Metamask account to the website
   - Click the 3-dots button on the upper-right corner
   - Choose "connect site"
+3. Lottery
+  - truffle compile
+  - truffle migrate --reset
+  - truffle network 
+  - Your will see addresses for each contract 
+    - Copy the address of LotLottery to $blockchain/build/lottery.js
+
+# Error Handling
+1. npm run dev shows error - failed to load SWC binary
+ - Delete the package-lock.json file and the node_modules directory in your project and then run npm install on your terminal 
+
