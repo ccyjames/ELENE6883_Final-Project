@@ -21,6 +21,19 @@ Columbia ELENE6883 Final Project
   - truffle network 
   - Your will see addresses for each contract 
     - Copy the address of LotLottery to $blockchain/build/lottery.js
+4. Migrate to Huygens
+  - install HD Wallet Provider: npm install @truffle/hdwallet-provider
+  - Export your private key from AleWallet and change the privateKey in truffle-config.js into your own and 
+    - Click the 3-dots symbol on the upper right and click "export Private Key"
+  - Open Postman and choose "POST" operation, pasting http://18.182.45.18:8765 into the blank on the right
+  - Import account from Alewallet
+    - Click the 3-dots symbol on the upper right and click "Export Key Store"
+    - A json file will be downloaded, paste the content of the file to the json field in Postman
+    - Add backward slash to each field then click "send"
+{
+    "action": "account_import",
+    "json": "{\"account\":\"0x3c52AB7a405E90BA3B4800e75DFEBC19259639a0\",\"kdf_salt\":\"38E1E1F3AA03B7D15D7926577928CC9E\",\"iv\":\"51D3140525A5DE5A17FCEBFB16D98890\",\"ciphertext\":\"9FCB3D81D11199926B155359228366DF4901547A69AFBF1F0E554DDA94346FA2\"}"
+}
 
 # Error Handling
 1. npm run dev shows error - failed to load SWC binary

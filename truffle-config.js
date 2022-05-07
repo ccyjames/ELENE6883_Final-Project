@@ -18,11 +18,10 @@
  *
  */
 
-// const HDWalletProvider = require('@truffle/hdwallet-provider');
-//
-// const fs = require('fs');
-// const mnemonic = fs.readFileSync(".secret").toString().trim();
+const HDWalletProvider = require('@truffle/hdwallet-provider');
 
+const fs = require('fs');
+const privateKey= "CCAA400EA3A07C421794C374210DC47EC8A028BC3BC37995E3705EB75B165BF2"
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -42,9 +41,18 @@ module.exports = {
     // options below to some value.
     //
     development: {
-     host: "127.0.0.1",     // Localhost (default: none)
-     port: 7545,            // Standard Ethereum port (default: none)
+     host: "18.182.45.18",     // Localhost (default: none)
+     port: 8765,            // Standard Ethereum port (default: none)
+     // port: 7545,            // Standard Ethereum port (default: none)
      network_id: "*",       // Any network (default: none)
+    },
+    huygens: {
+      // provider: () => new HDWalletProvider([privateKey], `https://13.182.45.18:8765`),
+      provider: () => new HDWalletProvider(privateKey, `http://18.182.45.18:8765`),
+      network_id: 828,
+      confirmations: 0,
+      timeoutBlocks: 200,
+      skipDryRun: true
     },
     // Another network with more advanced options...
     // advanced: {

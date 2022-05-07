@@ -13,24 +13,31 @@
 		"bg-server": "lite-server",
 		"bg-frontend": "next dev -p 3003",
 		"dev": "npm-run-all -p bg-server bg-frontend",
-	    "build": "next build",
-	    "start": "next start",
-	    "lint": "next lint",
-	    "compile": "solcjs --abi --include-path node_modules/ --base-path . blockchain/contracts/Lottery.sol --output-dir blockchain/build"
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"compile": "solcjs --abi --include-path node_modules/ --base-path . blockchain/contracts/Lottery.sol --output-dir blockchain/build"
 	},
 	"devDependencies": {
-		"lite-server": "^2.3.0",
-	    "eslint": "8.8.0",
-	    "eslint-config-next": "12.0.10"
+		"eslint": "8.8.0",
+		"eslint-config-next": "12.0.10",
+		"lite-server": "^2.3.0"
 	},
 	"dependencies": {
-	    "@chainlink/contracts": "^0.4.0",
-	    "bulma": "^0.9.3",
-	    "next": "12.0.10",
-	    "react": "17.0.2",
-	    "react-dom": "17.0.2",
-	    "solc": "^0.8.13",
-	    "web3": "^1.7.0",
-	    "npm-run-all": "4.1.5"
+		"@chainlink/contracts": "^0.4.0",
+		"@truffle/hdwallet-provider": "^2.0.8",
+		"bulma": "^0.9.3",
+		"mcp.js": "^0.1.2",
+		"next": "12.0.10",
+		"npm-run-all": "4.1.5",
+		"react": "17.0.2",
+		"react-dom": "17.0.2",
+		"solc": "^0.8.13",
+		"truffle-hdwallet-provider": "^1.0.17",
+		"web3": "^1.7.0",
+		"core-js": "^3.6.5",
+        "mcp.js": "^0.1.2",
+        "vue": "^3.0.0",
+        "vuex": "^4.0.2"
 	}
 }
