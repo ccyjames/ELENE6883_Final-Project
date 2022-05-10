@@ -5,7 +5,7 @@ import "./LotToken.sol";
 contract LotTokenSale {
 	// no public: we don't want to expose address of admin
 	address payable admin;
-	LotToken public tokenContract;
+	LotToken public tokenContract; //addr of lotTOken!!!!
 	uint256 public tokenPrice;
 	uint256 public tokensSold;
 
