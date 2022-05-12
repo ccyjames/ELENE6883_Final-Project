@@ -47,7 +47,9 @@ contract LotToken {
 
 	    return true;
 	}
-
+    function getBalance() public view returns (uint) {
+        return address(this).balance;
+    }
 	// approve
 	function approve(address _spender, uint256 _value) public returns (bool success) {
 		// allowance
