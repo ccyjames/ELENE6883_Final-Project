@@ -124,11 +124,11 @@ export default {
             gas:'2000000',
         });//这个函数是将测试转钱功能---测试ok now！
         if (response.success) {
-            console.log('transaction success: ', response);
+            console.log('transaction success: ', res2);
         } else {
             console.log('transaction failed: ', response);
         }
 
-        return res2;
+        return response;
     }
 }

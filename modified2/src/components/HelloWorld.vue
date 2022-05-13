@@ -186,7 +186,7 @@ export default {
     async buyTokens() {
       var numberOfTokens = $('#numberOfTokens').val();
 
-      services.buy_token(numberOfTokens,this.$store.state.dapp.account).then((res) => {
+      await services.buy_token(numberOfTokens,this.$store.state.dapp.account).then((res) => {
         console.log(res);
         $('form').trigger('reset')
       });
