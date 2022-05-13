@@ -28,7 +28,7 @@ contract Lottery {
     }
 
     function enter() public payable {
-        require(msg.value > .01 ether);
+        //require(msg.value > .01 ether);
 
         // address of player entering lottery
         players.push(payable(msg.sender));
@@ -40,7 +40,7 @@ contract Lottery {
 
     function pickWinner() public returns (address payable){
         uint index = getRandomNumber() % players.length;
-        // players[index].transfer(address(this).balance);
+        // players[index].transfer(address(this).balance);  //remember to 2 step in frontend@
         address payable winnerAddr = players[index];
 
         lotteryHistory[lotteryId] = players[index];

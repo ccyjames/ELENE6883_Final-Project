@@ -1,16 +1,17 @@
 // SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.13;
-
+import "./LotToken.sol";
 contract Lottery {
-    address public owner;
+    address payable public admin;
     address payable[] public players;
+    LotToken public tokenContract; //addr of lotTOken!!!!
     uint public lotteryId;
-    uint public randomResult;
     mapping (uint => address payable) public lotteryHistory;
 
-    constructor() {
-        owner = msg.sender;
+    constructor(LotToken _tokenContract) {
+        tokenContract = _tokenContract;
+        admin = payable(msg.sender);
         lotteryId = 1;
     }
 
@@ -27,37 +28,31 @@ contract Lottery {
     }
 
     function enter() public payable {
-        require(msg.value > .01 ether);
+        //require(msg.value > .01 ether);
 
         // address of player entering lottery
         players.push(payable(msg.sender));
     }
 
-    function getRandomNumber() public returns (uint) {
-        randomResult=uint(keccak256(abi.encodePacked(owner, block.timestamp)));
-        return randomResult;
+    function getRandomNumber() public view returns (uint) {
+        return uint(keccak256(abi.encodePacked(admin, block.timestamp)));
     }
 
-    function pickWinner() public  payable{
-        require(players.length > 0);
-        uint index ;
-        index= getRandomNumber() % players.length;
+    function pickWinner() public returns (address payable){
+        uint index = getRandomNumber() % players.length;
+        // players[index].transfer(address(this).balance);  //remember to 2 step in frontend@
+        address payable winnerAddr = players[index];
 
         lotteryHistory[lotteryId] = players[index];
         lotteryId++;
-    }
-
-    function payWinner() public payable{
-        require(randomResult > 0, "Must have a source of randomness before choosing winner");
-        lotteryHistory[lotteryId-1].transfer(address(this).balance);
-
-    
+        
         // reset the state of the contract
         players = new address payable[](0);
+        return winnerAddr;
     }
 
     modifier onlyowner() {
-      require(msg.sender == owner);
+      require(msg.sender == admin);
       _;
     }
 }

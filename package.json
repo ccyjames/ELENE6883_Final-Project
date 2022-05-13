@@ -18,7 +18,7 @@
 		"lint": "next lint",
 		"compile_token": "solcjs --abi --include-path node_modules/ --base-path . blockchain/contracts/LotToken.sol --output-dir blockchain/build",
 		"compile_sale": "solcjs --abi --include-path node_modules/ --base-path . blockchain/contracts/LotTokenSale.sol --output-dir blockchain/build",
-		"compile_lottery": "solcjs --abi --include-path node_modules/ --base-path . blockchain/contracts/Lottery.sol --output-dir blockchain/build"		
+		"compile_lottery": "solcjs --abi --include-path node_modules/ --base-path . blockchain/contracts/LotLottery.sol --output-dir blockchain/build"		
 	},
 	"devDependencies": {
 		"eslint": "8.8.0",

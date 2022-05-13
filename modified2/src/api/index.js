@@ -1,7 +1,7 @@
 import contract from '../contract';
-import Mcp from "../mcp";
+
 //import store from '../store'
-const McpFunc = new Mcp();
+
 import Big from 'bignumber.js'
 
 export default {
@@ -18,7 +18,7 @@ export default {
         return await contract.Instance.methods.balanceOf(acc).call();
     },
     async getPot(lottery_contract_addr) {
-        return await McpFunc.request.accountBalance(lottery_contract_addr);
+        return await this.getBalance(lottery_contract_addr);
     },
     async getPlayers(addr) {
         return await contract.Instance3.methods.getPlayers().call({from: addr});
@@ -34,13 +34,13 @@ export default {
         .sendBlock({
             from: addr,
             password: 'markmark',
-            amount: new Big('3').times('1e18').toString(),
+            amount: new Big('1').times('1e18').toString(),
             gas_price: '1000000000',
             gas:'2000000',
         });
     },
-    async pickwinner(addr) {
-        let res= await contract.Instance3.methods.pickWinner()
+    async pickwinner(addr,len) {
+        let res1= await contract.Instance3.methods.pickWinner()
         .sendBlock({
             from: addr,
             password: 'markmark',
@@ -48,13 +48,27 @@ export default {
             gas_price: '1000000000',
             gas:'2000000',
         });
-        return res;
+        console.log("pic winner res   "+res1)
+
+        
+        len=""+len
+        console.log("len!!" +len)//contract addr of lottery!!!!
+        let res2=await contract.Instance.methods.transfer(contract.lotteryAddress,new Big(len).toString())
+        .sendBlock({
+            from: addr,
+            password: 'markmark',
+            amount: "0",
+            gas_price: '1000000000',
+            gas:'2000000',
+        });
+        console.log("transfer func res   "+res2)
+        return res2
     },
     async gettest(addr) {
 
 
         //console.log("res1   "+res1)
-        let res2=await contract.Instance.methods.transfer("0xE2D7E5628Edd78553766Fc4848fa73428df34532",new Big('4').times('1e1').toString())
+        let res2=await contract.Instance.methods.transfer(contract.lotteryAddress,new Big('4').times('1e1').toString())
         .sendBlock({
             from: addr,
             password: 'markmark',
@@ -101,7 +115,7 @@ export default {
             gas_price: '1000000000',
             gas:'2000000',
         });
-        let res2=await contract.Instance.methods.transfer("0xE2D7E5628Edd78553766Fc4848fa73428df34532",new Big(limit).toString())
+        let res2=await contract.Instance.methods.transfer(contract.accountAddress,new Big(limit).toString())
         .sendBlock({
             from: addr,
             password: 'markmark',

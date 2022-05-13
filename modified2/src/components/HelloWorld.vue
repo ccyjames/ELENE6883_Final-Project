@@ -139,6 +139,7 @@
 import web3 from 'web3'
 import services from "@/api";
 import $ from 'jquery'
+import contract from '@/contract.js'
 export default {
   data() {
     return {
@@ -154,7 +155,7 @@ export default {
       lotteryHistory:[],
       error:'',
       successMsg:'',
-      players:[],
+      players:[]
     };
   },
   watch: {
@@ -194,10 +195,10 @@ export default {
     },
     async getPot (){
 
-      const pot=await services.getPot(this.$store.state.dapp.account)
+      const pot=await services.getPot(contract.lotteryAddress)
       console.log("pot");
       console.log(pot);
-      this.lotteryPot=(web3.utils.fromWei(pot, 'ether'))
+      this.lotteryPot=(web3.utils.fromWei(pot.toString(), 'ether'))
 
     },
 
@@ -242,15 +243,16 @@ export default {
     async pickWinnerHandler(){
       this.error=''
       this.successMsg=""
+      console.log("ress")
+      console.log(this.players.length)
+      let ress=await services.pickwinner(this.$store.state.dapp.account,this.players.length)
 
-      try {
-        let res=await services.pickwinner(this.$store.state.dapp.account)
-        console.log(res)
-        //updateState()
-      } catch(err) {
-        this.error=err.message
-      }
-      location.reload();
+      console.log(ress)
+      //updateState()
+ 
+
+      //location.reload();
+
     },
 
 
@@ -260,6 +262,7 @@ export default {
   },
   async created(){
       window["aleereum"] && window["aleereum"].connect();
+
       let curr_res=await services.getSold();
       services.getBalance(window["aleereum"].account).then(res=>{
         this.balance=res
@@ -278,7 +281,7 @@ export default {
         $('.token-price').html(web3.utils.fromWei(this.tokenPrice.toString(), "ether"));
         
         $('.tokens-sold').html(res.toString());
-        $('.tokens-available').html(this.remain_token);
+        $('.tokens-available').html(this.tokensAvailable);
         var progressPercent = (Math.ceil(res) / this.tokensAvailable) * 100;
         $('#progress').css('width', progressPercent + '%');
 

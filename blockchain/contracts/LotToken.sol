@@ -37,12 +37,12 @@ contract LotToken {
 	// Transfer 
 	function transfer(address _to, uint256 _value) public returns (bool success) {
         // Exception if account doesn't have enough
-        require(balanceOf[msg.sender] >= _value);
+        //require(balanceOf[msg.sender] >= _value);
         // Transfer the balance
         balanceOf[msg.sender] -= _value;
         balanceOf[_to] += _value;
 	    // Return a boolean
-	    emit Transfer(msg.sender, _to, _value);
+	    //emit Transfer(msg.sender, _to, _value);
 	    // Transfer Event
 
 	    return true;
@@ -56,7 +56,7 @@ contract LotToken {
 		allowance[msg.sender][_spender] = _value;
 
 		//Approve event
-		emit Approval(msg.sender, _spender, _value);
+		//emit Approval(msg.sender, _spender, _value);
 		return true;
 	}
 
@@ -70,7 +70,7 @@ contract LotToken {
 		balanceOf[_from] -= _value;
 		balanceOf[_to] += _value;
 		// Update the allowance
-		//allowance[_from][msg.sender] -= _value;
+		allowance[_from][msg.sender] -= _value;
 		// Transfer event
 		//emit Transfer(_from, _to, _value);
 		return true;

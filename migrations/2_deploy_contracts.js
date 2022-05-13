@@ -7,7 +7,7 @@ module.exports = function (deployer) {
   deployer.deploy(LotToken, 100000000000000).then(function() {
     // token price 
     var tokenPrice = 1000000000000000; //10^16
-    deployer.deploy(LotLottery);
+    deployer.deploy(LotLottery,LotToken.address);
     return deployer.deploy(LotTokenSale, LotToken.address, tokenPrice);
   });
 };

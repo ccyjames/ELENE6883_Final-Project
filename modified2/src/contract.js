@@ -9,21 +9,12 @@ McpFunc.Contract.setProvider("http://18.182.45.18:8765");
 
 
 //<<<<<<< HEAD
-//const tokenAddress_lot = "0xE9a535Dc9861111cf73059d43B1c555bF57D171C";//token
+const tokenAddress_lot = "0x456625463Fda135c7f920457df1A5187dc57852A";//token
 
-
-//const tokenAddress = "0x9955b24eDc65cBfF61D672899c9D1a46F4574Db1"; //sale
-//const coreAddress = "0x9955b24eDc65cBfF61D672899c9D1a46F4574Db1";
-//const lotteryAddress = "0xb6C7194b21295a0D12D5F5080391E0ddB2Ff6B7C";//lottery
-//=======
-const tokenAddress_lot = "0xc7b46515bB1e30e08FC1f945843a900f8837e27b";
-
-
-const tokenAddress = "0x433a4c6f28947259748097eBF5c73959f13f34c8";
-const coreAddress = "0xc7b46515bB1e30e08FC1f945843a900f8837e27b";
-const lotteryAddress = "0x433a4c6f28947259748097eBF5c73959f13f34c8";
-//>>>>>>> e570036854a3349f067318c98b6624a488127557
-
+const accountAddress = "0xec13607F3827115fFe4d352f6f9dccb94a92180C"; //account
+const tokenAddress = "0xec13607F3827115fFe4d352f6f9dccb94a92180C"; //sale
+const coreAddress = "0xec13607F3827115fFe4d352f6f9dccb94a92180C";
+const lotteryAddress = "0x393eC7461B1DDa4C513733dFD7b1a84C486CAaC8";//lottery
 
 
 const Instance = new McpFunc.Contract(
@@ -41,11 +32,14 @@ const Instance3 = new McpFunc.Contract(
 );
 
 const Contract = {
-    tokenAddress,
     Instance,
     Instance2,
     Instance3,
-    coreAddress
+    coreAddress,
+    accountAddress,
+    tokenAddress_lot,
+    tokenAddress,
+    lotteryAddress
 };
 
 export default Contract;
