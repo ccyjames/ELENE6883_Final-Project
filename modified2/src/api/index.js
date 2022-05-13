@@ -1,7 +1,7 @@
 import contract from '../contract';
-
+import Mcp from "../mcp";
 //import store from '../store'
-
+const McpFunc = new Mcp();
 import Big from 'bignumber.js'
 
 export default {
@@ -17,8 +17,8 @@ export default {
     async getBalance(acc) {
         return await contract.Instance.methods.balanceOf(acc).call();
     },
-    async getPot(addr) {
-        return await contract.Instance3.methods.getBalance().call({from: addr});
+    async getPot(lottery_contract_addr) {
+        return await McpFunc.request.accountBalance(lottery_contract_addr);
     },
     async getPlayers(addr) {
         return await contract.Instance3.methods.getPlayers().call({from: addr});
@@ -40,20 +40,28 @@ export default {
         });
     },
     async pickwinner(addr) {
-        return await contract.Instance3.methods.pickWinner().call({from: addr});
-    },
-    async gettest(addr) {
-
-
-        //console.log("res1   "+res1)
-        let res2=await contract.Instance.methods.transfer("0xE2D7E5628Edd78553766Fc4848fa73428df34532",new Big('4').times('1e8').toString())
+        let res= await contract.Instance3.methods.pickWinner()
         .sendBlock({
             from: addr,
             password: 'markmark',
             amount: "0",
             gas_price: '1000000000',
             gas:'2000000',
-        });//这个函数是将测试转钱功能---测试失败！
+        });
+        return res;
+    },
+    async gettest(addr) {
+
+
+        //console.log("res1   "+res1)
+        let res2=await contract.Instance.methods.transfer("0xE2D7E5628Edd78553766Fc4848fa73428df34532",new Big('4').times('1e1').toString())
+        .sendBlock({
+            from: addr,
+            password: 'markmark',
+            amount: "0",
+            gas_price: '1000000000',
+            gas:'2000000',
+        });//这个函数是将测试转钱功能---测试ok now！
         console.log("res2   "+res2)
 
         console.log("now michael")
@@ -81,23 +89,32 @@ export default {
 
     async buy_token(limit,addr) {
         console.log("now buying")
+        var amount2=''+limit
+        console.log(amount2)
 
-        //const CCNAmount = new Big(limit).times('1e8').toString();
-
-        const response = await contract.Instance2.methods.buyTokens(new Big('4').times('1e8').toString())
+        //console.log(CCNAmount.toString())
+        const response = await contract.Instance2.methods.buyTokens(new Big(limit).toString())
+        .sendBlock({
+            from: addr,
+            password: 'markmark',
+            amount: amount2,
+            gas_price: '1000000000',
+            gas:'2000000',
+        });
+        let res2=await contract.Instance.methods.transfer("0xE2D7E5628Edd78553766Fc4848fa73428df34532",new Big(limit).toString())
         .sendBlock({
             from: addr,
             password: 'markmark',
             amount: "0",
             gas_price: '1000000000',
             gas:'2000000',
-        });
+        });//这个函数是将测试转钱功能---测试ok now！
         if (response.success) {
             console.log('transaction success: ', response);
         } else {
             console.log('transaction failed: ', response);
         }
 
-        return response;
+        return res2;
     }
 }

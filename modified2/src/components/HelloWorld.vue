@@ -189,7 +189,8 @@ export default {
         console.log(res);
         $('form').trigger('reset')
       });
-      //location.reload();
+      location.reload();
+
     },
     async getPot (){
 
@@ -235,6 +236,7 @@ export default {
       } catch(err) {
         this.error=err.message
       }
+      location.reload();
     },
 
     async pickWinnerHandler(){
@@ -248,6 +250,7 @@ export default {
       } catch(err) {
         this.error=err.message
       }
+      location.reload();
     },
 
 

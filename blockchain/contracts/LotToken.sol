@@ -70,9 +70,9 @@ contract LotToken {
 		balanceOf[_from] -= _value;
 		balanceOf[_to] += _value;
 		// Update the allowance
-		allowance[_from][msg.sender] -= _value;
+		//allowance[_from][msg.sender] -= _value;
 		// Transfer event
-		emit Transfer(_from, _to, _value);
+		//emit Transfer(_from, _to, _value);
 		return true;
 	}
 

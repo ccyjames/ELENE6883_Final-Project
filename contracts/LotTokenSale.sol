@@ -4,7 +4,7 @@ import "./LotToken.sol";
 
 contract LotTokenSale {
 	// no public: we don't want to expose address of admin
-	address payable admin;
+	address payable public admin;
 	LotToken public tokenContract; //addr of lotTOken!!!!
 	uint256 public tokenPrice;
 	uint256 public tokensSold;
@@ -34,15 +34,15 @@ contract LotTokenSale {
 	// Buy tokens
 	function buyTokens(uint256 _numberOfTokens) public payable {
 		// Require that value is equal to tokens
-		require(msg.value == multiply(_numberOfTokens, tokenPrice));
+		//require(msg.value == multiply(_numberOfTokens, tokenPrice));
 		// Require that the contract has enough tokens
-		require(tokenContract.balanceOf(address(this)) >= _numberOfTokens);
+		//require(tokenContract.balanceOf(address(this)) >= _numberOfTokens);
 		// Require that a transfer is successful
-		require(tokenContract.transfer(msg.sender, _numberOfTokens));
+		//require(tokenContract.transfer(msg.sender, _numberOfTokens));
 		// Keep track of tokensSold
 		tokensSold += _numberOfTokens;
 		// Trigger sell event
-		emit Sell(msg.sender, _numberOfTokens);
+		//emit Sell(msg.sender, _numberOfTokens);
 	}
 
 	function endSale() public {
