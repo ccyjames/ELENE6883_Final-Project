@@ -30,12 +30,22 @@ Columbia ELENE6883 Final Project
     - Click the 3-dots symbol on the upper right and click "Export Key Store"
     - A json file will be downloaded, paste the content of the file to the json field in Postman
     - Add backward slash to each field then click "send"
-{
-    "action": "account_import",
-    "json": "{\"account\":\"0x3c52AB7a405E90BA3B4800e75DFEBC19259639a0\",\"kdf_salt\":\"38E1E1F3AA03B7D15D7926577928CC9E\",\"iv\":\"51D3140525A5DE5A17FCEBFB16D98890\",\"ciphertext\":\"9FCB3D81D11199926B155359228366DF4901547A69AFBF1F0E554DDA94346FA2\"}"
-}
+  - (Optional) Since our project has been deployed to huygens network, no need to do the migration again. However, you can deploy our project on huygens network by following steps.
+    - Run "truffle migrate --network huygens --reset" on the project root directory
+    - Run "truffle network" to get the contract address, including LotToken, LotTokenSale and Lottery
+    - Modify the contract address in contract.js
+      - Set coreAddress and tokenAddress_lot to LotToken contract  address
+      - Set tokenAddress to LotTokenSale contract address
+      - Set lotteryAddress to Lottery contract address
+  - Make sure you have all the dependencies installed by running "npm install"
+5. Play with our project
+  - cd into the "modified2" directory and run "npm run serve"
+  - Open the URL in your browser
+  - Start exploring The Lottery DApp
+  - (Optional) Make sure Metamask is disabled in your browser while Alewallet should be enabled
 
 # Error Handling
 1. npm run dev shows error - failed to load SWC binary
  - Delete the package-lock.json file and the node_modules directory in your project and then run npm install on your terminal 
+2. Use sendBlock instead of sendToBlock to do transaction on huygens network
 
