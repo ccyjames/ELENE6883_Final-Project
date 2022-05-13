@@ -15,7 +15,7 @@
     <div class="col-lg-12">
         <h1 class="text-center">LOT TOKEN ICO SALE</h1>
         <div>
-          <button @click="buyTokens2" >Connect to Wallet</button>
+
         </div>
         <hr/>
         <br/>
@@ -210,7 +210,7 @@ export default {
 
     async getHistory (id) {
       this.lotteryHistory=[]
-      for (let i = parseInt(id); i > 0; i--) {
+      for (let i = parseInt(id)-1; i > 0; i--) {
 
         const winnerAddress=await services.lotteryHistory(i,this.$store.state.dapp.account)
         const historyObj = {}

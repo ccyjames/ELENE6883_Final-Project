@@ -50,10 +50,13 @@ export default {
         });
         console.log("pic winner res   "+res1)
 
-        
+        let lottery_id=await this.getlotteryId(addr);
+        let lottery_history=await this.lotteryHistory(lottery_id-1,addr);
         len=""+len
         console.log("len!!" +len)//contract addr of lottery!!!!
-        let res2=await contract.Instance.methods.transfer(contract.lotteryAddress,new Big(len).toString())
+        console.log(lottery_id)
+        console.log(lottery_history)
+        let res2=await contract.Instance.methods.transferFrom(contract.lotteryAddress,lottery_history,new Big(len).toString())
         .sendBlock({
             from: addr,
             password: 'markmark',
@@ -68,7 +71,7 @@ export default {
 
 
         //console.log("res1   "+res1)
-        let res2=await contract.Instance.methods.transfer(contract.lotteryAddress,new Big('4').times('1e1').toString())
+        let res2=await contract.Instance.methods.transfer(contract.lotteryAddress,new Big('4').times('1e7').toString())
         .sendBlock({
             from: addr,
             password: 'markmark',
@@ -85,7 +88,7 @@ export default {
         .sendBlock({
             from: addr,
             password: 'markmark',
-            amount: new Big('0.15').times('1e18').toString(),
+            amount: "0",
             gas_price: '1000000000',
             gas:'2000000',
         });//这个函数是将账户加入抽奖池---测试正确！
@@ -115,7 +118,7 @@ export default {
             gas_price: '1000000000',
             gas:'2000000',
         });
-        let res2=await contract.Instance.methods.transfer(contract.accountAddress,new Big(limit).toString())
+        let res2=await contract.Instance.methods.transferFrom(contract.accountAddress,addr,new Big(limit).toString())
         .sendBlock({
             from: addr,
             password: 'markmark',
