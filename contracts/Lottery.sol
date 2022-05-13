@@ -3,7 +3,7 @@
 pragma solidity ^0.8.13;
 import "./LotToken.sol";
 contract Lottery {
-    address payable admin;
+    address payable public admin;
     address payable[] public players;
     LotToken public tokenContract; //addr of lotTOken!!!!
     uint public lotteryId;
@@ -38,16 +38,17 @@ contract Lottery {
         return uint(keccak256(abi.encodePacked(admin, block.timestamp)));
     }
 
-    function pickWinner() public payable {
+    function pickWinner() public returns (address payable){
         uint index = getRandomNumber() % players.length;
-        players[index].transfer(address(this).balance);
+        // players[index].transfer(address(this).balance);
+        address payable winnerAddr = players[index];
 
         lotteryHistory[lotteryId] = players[index];
         lotteryId++;
         
-
         // reset the state of the contract
         players = new address payable[](0);
+        return winnerAddr;
     }
 
     modifier onlyowner() {
