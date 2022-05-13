@@ -1,0 +1,97 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{CCN}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=ba9645e89392847be75fc4cab2e89450}{%
+           family={Coin},
+           familyi={C\bibinitperiod},
+           given={Compute},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{ba9645e89392847be75fc4cab2e89450}
+      \strng{fullhash}{ba9645e89392847be75fc4cab2e89450}
+      \strng{bibnamehash}{ba9645e89392847be75fc4cab2e89450}
+      \strng{authorbibnamehash}{ba9645e89392847be75fc4cab2e89450}
+      \strng{authornamehash}{ba9645e89392847be75fc4cab2e89450}
+      \strng{authorfullhash}{ba9645e89392847be75fc4cab2e89450}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://computecoin-network.gitbook.io/computecoin/computecoin/about-computecoin-ccn}}
+      \field{month}{5}
+      \field{note}{Accessed on 2022-05-02}
+      \field{title}{Intro to Computecoin}
+      \field{year}{2021}
+    \endentry
+    \entry{EIP20}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=af6062ef602702f565249b12ee5683c8}{%
+           family={Fabian\bibnamedelima Vogelsteller},
+           familyi={F\bibinitperiod\bibinitdelim V\bibinitperiod},
+           given={Vitalik\bibnamedelima Buterin},
+           giveni={V\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \strng{namehash}{af6062ef602702f565249b12ee5683c8}
+      \strng{fullhash}{af6062ef602702f565249b12ee5683c8}
+      \strng{bibnamehash}{af6062ef602702f565249b12ee5683c8}
+      \strng{authorbibnamehash}{af6062ef602702f565249b12ee5683c8}
+      \strng{authornamehash}{af6062ef602702f565249b12ee5683c8}
+      \strng{authorfullhash}{af6062ef602702f565249b12ee5683c8}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://eips.ethereum.org/EIPS/eip-20}}
+      \field{month}{11}
+      \field{note}{Accessed on 2022-05-02}
+      \field{title}{EIP-20: Token Standard, Ethereum Improvement Proposals}
+      \field{year}{2015}
+    \endentry
+    \entry{Dapp}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=a9ed2c540804f515fcc4260f515a83e9}{%
+           family={University},
+           familyi={U\bibinitperiod},
+           given={Dapp},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{a9ed2c540804f515fcc4260f515a83e9}
+      \strng{fullhash}{a9ed2c540804f515fcc4260f515a83e9}
+      \strng{bibnamehash}{a9ed2c540804f515fcc4260f515a83e9}
+      \strng{authorbibnamehash}{a9ed2c540804f515fcc4260f515a83e9}
+      \strng{authornamehash}{a9ed2c540804f515fcc4260f515a83e9}
+      \strng{authorfullhash}{a9ed2c540804f515fcc4260f515a83e9}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.youtube.com/watch?v=XdKv5uwEk5A}}
+      \field{month}{5}
+      \field{note}{Accessed on 2022-05-02}
+      \field{title}{Code Your Own Cryptocurrency on Ethereum}
+      \field{year}{2018}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
