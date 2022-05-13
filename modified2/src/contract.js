@@ -8,12 +8,12 @@ const McpFunc = new Mcp();
 McpFunc.Contract.setProvider("http://18.182.45.18:8765");
 
 
-const tokenAddress_lot = "0x9a55e828E055f98a106d1Bf5B23C358962918584";
+const tokenAddress_lot = "0xdbb6dF2774fE456B76b41E4eccE161C044616C35";
 
 
-const tokenAddress = "0xcFCdf2553C99494F54EC99FFd1361E07540DA8dA";
-const coreAddress = "0xcFCdf2553C99494F54EC99FFd1361E07540DA8dA";
-const lotteryAddress = "0x622570EB6E7457E0DC976b7e42053755f8a0b2E5";
+const tokenAddress = "0xfE8737A0DFCB21aD9cDD53770118edaE92781c97";
+const coreAddress = "0xfE8737A0DFCB21aD9cDD53770118edaE92781c97";
+const lotteryAddress = "0xB7ff2B82C4842c425f89A8DBaA5c69E7b3E9691e";
 
 
 

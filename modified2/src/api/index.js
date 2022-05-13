@@ -34,7 +34,7 @@ export default {
         .sendBlock({
             from: addr,
             password: 'markmark',
-            amount: new Big('0.15').times('1e18').toString(),
+            amount: new Big('3').times('1e18').toString(),
             gas_price: '1000000000',
             gas:'2000000',
         });
@@ -46,15 +46,19 @@ export default {
 
 
         //console.log("res1   "+res1)
-        let res2=await contract.Instance.methods.transfer("0xE2D7E5628Edd78553766Fc4848fa73428df34532",new Big('3').times('1e18').toString())
+        let res2=await contract.Instance.methods.transfer("0xE2D7E5628Edd78553766Fc4848fa73428df34532",new Big('4').times('1e8').toString())
         .sendBlock({
             from: addr,
             password: 'markmark',
-            amount: new Big('3').times('1e18').toString(),
+            amount: "0",
             gas_price: '1000000000',
             gas:'2000000',
-        });
+        });//这个函数是将测试转钱功能---测试失败！
         console.log("res2   "+res2)
+
+        console.log("now michael")
+        console.log(new Big('4').times('1e18').toString())
+        console.log(new Big('3').times('1e18').toString())
         let res22=await contract.Instance3.methods.enter()
         .sendBlock({
             from: addr,
@@ -62,22 +66,12 @@ export default {
             amount: new Big('0.15').times('1e18').toString(),
             gas_price: '1000000000',
             gas:'2000000',
-        });
+        });//这个函数是将账户加入抽奖池---测试正确！
         console.log("res22  "+res22)
 
 
-        var res3=await contract.Instance.methods.balanceOf("0x4667df0025cF47c9D59cA7413df0A3fF59928417").call({from: addr});
-        console.log("balance res3   "+res3)
-        
-
-        var res4=await contract.Instance2.methods.getTokenSold().call({from: addr});
-        console.log("res4   "+res4)
-
-        var res7=await contract.Instance3.methods.getPlayers().call({from: addr});
-        console.log("res7   "+res7)
-
-        var res8=await contract.Instance.methods.getBalance().call({from: addr});
-        console.log("pottttt   "+res8)
+        var res8=await contract.Instance.methods.balanceOf(addr).call({from: addr});
+        console.log("balanceof test   "+res8)
 
         contract.Instance3.methods.getBalance().call({from: addr}).then(data => {console.log('testCall1 data', data)})
         return res2
@@ -87,16 +81,14 @@ export default {
 
     async buy_token(limit,addr) {
         console.log("now buying")
-        const approveAmount = new Big(limit).times('1e18').toString();
-        const CCNAmount = new Big(limit*0.001).times('1e18').toString();
-        console.log(contract.Instance)
-        console.log(contract.Instance2)
-        console.log(approveAmount)
-        const response = await contract.Instance2.methods.buyTokens(approveAmount)
+
+        //const CCNAmount = new Big(limit).times('1e8').toString();
+
+        const response = await contract.Instance2.methods.buyTokens(new Big('4').times('1e8').toString())
         .sendBlock({
             from: addr,
             password: 'markmark',
-            amount: CCNAmount,
+            amount: "0",
             gas_price: '1000000000',
             gas:'2000000',
         });
