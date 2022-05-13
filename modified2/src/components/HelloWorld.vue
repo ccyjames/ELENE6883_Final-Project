@@ -8,7 +8,7 @@
     <h1 v-show="isConnected">{{ account }}</h1>
     <button v-show="!isConnected" @click="connect">Connect Ale</button>
     <div style="color: #f00" v-show="isConnected">Connect Success!</div>
-    <button v-show="isConnected" @click="approveMoney">approve $100</button>
+    <button v-show="isConnected" @click="approveMoney">Do some test(Dev only)</button>
   </div>
 
   <div class="row">
@@ -251,7 +251,7 @@ export default {
       //updateState()
  
 
-      //location.reload();
+      location.reload();
 
     },
 
